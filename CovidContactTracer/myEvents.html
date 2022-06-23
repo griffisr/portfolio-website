@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<title>Covid Contact Tracer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Initialize Firebase-->
+<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="mainStyle.css">
+<link rel="stylesheet" type="text/css" href="myEvents.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="top">
+    <div class=nav-wrapper>
+    <a class="bar-item button padding-large hide-medium hide-large right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="bar-item button padding-large">HOME</a>
+    <a href="myEvents.html" class="bar-item button padding-large hide-small">MY EVENTS</a>
+    <button id = "logIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class= "bar-item button padding-large">LOGIN</button>
+    <button id= "logOut" style.display='block' style="width:auto;" class= "bar-item button padding-large hide">LOG OUT</button>
+    <a id="newEventBtn" href="" class="padding-large hover-red hide-small right">New Event</a>
+</div>
+</div>
+
+
+    <!--Log In Box-->
+    <div id="id01" class="modal">
+  
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="/CovidContactTracer/images/img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+    
+        <div class="container">
+          <div id="firebaseui-auth-container"></div>
+          <br>
+        </div>
+      </form>
+    </div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="bar-block black hide hide-large hide-medium top" style="margin-top:46px">
+  <a href="event.html" class="bar-item button padding-large" onclick="myFunction()">MY EVENTS</a>
+</div>
+
+<!-- Page content -->
+<div class="content" style="max-width:3000px;margin-top:46px">
+  <br><br><br><br><br>
+  <div class="formBtn"> 
+    <a class="addbutton" onclick="launchEvent('new')" href="event.html">+ New Event</a>
+  </div>
+  
+
+  <ul style="margin-left: 7.5%;" id="events">
+  </ul>
+
+
+  
+<!-- End Page Content -->
+</div>
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="container padding-64 center opacity light-grey xlarge">
+  <i class="fa fa-facebook-official hover-opacity"></i>
+  <i class="fa fa-instagram hover-opacity"></i>
+  <i class="fa fa-snapchat hover-opacity"></i>
+  <i class="fa fa-pinterest-p hover-opacity"></i>
+  <i class="fa fa-twitter hover-opacity"></i>
+  <i class="fa fa-linkedin hover-opacity"></i>
+  <p class="medium">Designed and created by: Riley Griffis</p>
+</footer>
+
+
+</body>
+
+
+
+
+
+
+<script type="text/javascript" src="/CovidContactTracer/myEvents.js"></script>
+
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("show") == -1) {
+    x.className += " show";
+  } else {
+    x.className = x.className.replace(" show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+<!-- *********************************Firebase User Auth********************************************************** -->
+<script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.css" />
+<script type="text/javascript">
+  // FirebaseUI config.
+  var uiConfig = {
+    signInSuccessUrl: "myEvents.html",
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    // tosUrl and privacyPolicyUrl accept either url string or a callback
+    // function.
+    // Terms of service url/callback.
+    tosUrl: '<your-tos-url>',
+    // Privacy policy url/callback.
+    privacyPolicyUrl: function() {
+      window.location.assign('<your-privacy-policy-url>');
+    }
+  };
+
+  // Initialize the FirebaseUI Widget using Firebase.
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  // The start method will wait until the DOM is loaded.
+  ui.start('#firebaseui-auth-container', uiConfig);
+  logOut.addEventListener('click', e => {
+  firebase.auth().signOut();
+  console.log("signed Out")
+  window.location.replace("index.html")
+  });
+</script>
+</html>

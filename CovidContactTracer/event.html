@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Name</title>
+
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Initialize Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+   
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Import Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="eventStyle.css">
+    <link rel="stylesheet" type="text/css" href="mainStyle.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="top">
+        <div class="nav-wrapper">
+        <a class="bar-item button padding-large hide-medium hide-large right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="index.html" class="bar-item button padding-large">HOME</a>
+        <a href="myEvents.html" class="bar-item button padding-large hide-small">MY EVENTS</a>
+        <button id = "logIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class= "bar-item button padding-large">LOGIN</button>
+        <button id= "logOut" style.display='block' style="width:auto;" class= "bar-item button padding-large hide">LOG OUT</button>
+        <a id="newEventBtn" href="" class="padding-large hover-red hide-small right">New Event</a>
+        </div>
+    </div>
+
+    <!--Log In Box-->
+    <div id="id01" class="modal">
+  
+    <form class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="/CovidContactTracer/images/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+  
+      <div class="container">
+        <div id="firebaseui-auth-container"></div>
+        <br>
+      </div>
+    </form>
+  </div>
+  
+ <!--Hamburger Nav Bar Menu-->
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+  <div id="navDemo" class="bar-block black hide hide-large hide-medium top" style="margin-top:46px">
+    <a href="event.html" class="bar-item button padding-large" onclick="myFunction()">MY EVENTS</a>
+  </div>
+    
+
+  <!--Page Content-->
+  
+    
+    
+<!-----------------------------------------Top Screen Content (Check In and Out)------------------------------------------------->
+
+<div class = "page-wrapper">
+  
+</div>
+<div class="container content center padding-64" style="background-color: #f5f3f3; opacity: 0.8; max-width:1600px; box-shadow: 5px 10px 8px #888888;" id="band">
+  <div class="row padding-32">
+    <!-------------------------------------Check In------------------------------>
+    <div class="third" style= "min-width: 45%;">
+      <!--Check In Label-->
+      <div class="checkInLabel">
+        <h2 class="wide">Check In</h2>
+      </div>
+
+      <!--Form for adding-->
+      <div class="checkInForm">
+        
+        <input id ="checkInBtn" type="submit" value="Check In" onclick="">
+
+        <form autocomplete="off">
+
+          <div class="autocomplete" style="width: max-content;">
+            <input style="width: 100%;" id="checkInName" type="text" name="myCountry" placeholder="Check In">
+          </div>
+
+        </form>
+        
+      </div>
+      <input type="file" name="inputfile" id="inputfile"></input>
+      
+    </div>
+    <!--End Check-In -->
+
+
+    <!--Spacer for check in and check out-->
+    <div class="third"style= "max-width: 10%;"></div>
+      
+    <!-------------------------------------Check Out------------------------------>
+    <div class="third" style="min-width: 45%; align-items: center;">
+      <!--Check Out Label -->
+      <div class="checkOutLabel">
+        <h2 class="wide">Check Out</h2> 
+      </div>
+
+      <div class="checkInForm">
+        
+        <input id ="checkOutBtn" type="submit" value="Check Out" onclick="">
+
+        <form autocomplete="off">
+
+          <div class="autocomplete" style="width: max-content;">
+            <input style="width: 100%;" id="checkOutName" type="text" name="myCountry" placeholder="Check Out">
+          </div>
+        </form>
+      </div>   
+    </div>
+    <!--End Check Out-->
+  </div>
+</div>
+
+<div class="content-spacer"></div>
+
+
+<!--Current Event Information-->
+<div class="container content center padding-64" style="background-color: #f5f3f3; opacity: 0.8; max-width:1600px; box-shadow: 5px 10px 8px #888888" id="band">
+  <div class="row padding-32">
+    <!-------------------------------------Left Side------------------------------>
+    <div class="third" style= "min-width: 45%;">
+      <h3>CDC Risk level goes here</h3>
+      
+    </div>
+    <!--End Left Side -->
+
+
+    <!--Spacer for middle-->
+    <div class="third"style= "max-width: 10%;"></div>
+      
+    <!-------------------------------------Right Side------------------------------>
+    <div class="third" style="min-width: 45%;">
+      <div class="inside-wrapper">
+        <!--List of Guests Inside-->
+        <h3 id="currentInside"></h3>
+        <ul id="namesInside">
+        </ul>
+        
+      </div>
+      
+    </div>
+    <!--End Right Side-->
+  </div>
+</div>
+
+
+
+
+
+  <div class="content-spacer"></div>
+
+    
+
+
+<!-- Footer -->
+<footer class="container padding-64 center opacity light-grey xlarge">
+  <i class="fa fa-facebook-official hover-opacity"></i>
+  <i class="fa fa-instagram hover-opacity"></i>
+  <i class="fa fa-snapchat hover-opacity"></i>
+  <i class="fa fa-pinterest-p hover-opacity"></i>
+  <i class="fa fa-twitter hover-opacity"></i>
+  <i class="fa fa-linkedin hover-opacity"></i>
+  <p class="medium">Designed and created by: Riley Griffis</p>
+</footer>
+
+</body>
+
+        <script>
+          // Used to toggle the menu on small screens when clicking on the menu button
+          function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("show") == -1) {
+              x.className += " show";
+            } else {
+              x.className = x.className.replace(" show", "");
+            }
+          }
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            </script>
+
+
+    <script type="text/javascript" src="/CovidContactTracer/eventScript.js"></script>
+
+
+
+<!-- *********************************Firebase User Auth********************************************************** -->
+<script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.css" />
+<script type="text/javascript">
+  // FirebaseUI config.
+  var uiConfig = {
+    signInSuccessUrl: "index.html",
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    // tosUrl and privacyPolicyUrl accept either url string or a callback
+    // function.
+    // Terms of service url/callback.
+    tosUrl: '<your-tos-url>',
+    // Privacy policy url/callback.
+    privacyPolicyUrl: function() {
+      window.location.assign('<your-privacy-policy-url>');
+    }
+  };
+
+  // Initialize the FirebaseUI Widget using Firebase.
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  // The start method will wait until the DOM is loaded.
+  ui.start('#firebaseui-auth-container', uiConfig);
+  logOut.addEventListener('click', e => {
+  firebase.auth().signOut();
+  console.log("signed Out")
+  window.location.replace("index.html")
+  });
+</script>
+</html>

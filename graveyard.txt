@@ -1,0 +1,32 @@
+<div>
+                    <div class="post">
+                        <img class="thumbnail" src="images/covid-screenshot.png">
+                        <div class="post-preview">
+                            <h6 class="post-title">Covid Contact Tracer</h6>
+                            <p class="post-intro">A Covid-19 contact tracing program using Firebase NoSQL Realtime Database.</p>
+                            <a target="_blank" href="/CovidContactTracer/">Live Demo</a><p>     </p><a target="_blank"  href="https://github.com/griffisr/CovidContactTracer">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="post">
+                        <img class="thumbnail" src="images/Peppers-Website.png">
+                        <div class="post-preview">
+                            <h6 class="post-title">Peppers Mexican Grill</h6>
+                            <p class="post-intro">A webpage designed for a local mexican restaurant.</p>
+                            <a target="_blank" href="http://www.peppersmexicangrill.net/">Live Demo</a><p>     </p><a target="_blank"  href="https://github.com/griffisr/Peppers-Website">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="post">
+                        <img class="thumbnail" src="images/SBsite.png">
+                        <div class="post-preview">
+                            <h6 class="post-title">Snap Booth Photos</h6>
+                            <p class="post-intro">Website for my personal business utilizing real time analytics to guide marketing.</p>
+                            <a target="_blank" href="http://snapboothphotos.com">Live Demo</a><p>     </p><a target="_blank"  href="https://github.com/griffisr/PhotoboothNew">View Code</a>
+                        </div>
+                    </div>
+                </div>

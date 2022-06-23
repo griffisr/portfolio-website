@@ -1,0 +1,221 @@
+
+
+:root{
+    --mainColor: #eaeaea;
+    --secondaryColor: #fff;
+
+    --borderColor: #c1c1c1;
+
+
+    --mainText: black;
+    --secondaryText: #4b5156;
+
+    --themeDotBorder: #24292e;
+
+    --previewBg: rgb(251, 249, 243, 0.8);
+
+    --previewShadow: #f0ead6;
+
+    --buttonColor: rgb(136, 139, 233);
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6, strong{
+    color: var(--mainText);
+    font-family: 'Goldman', sans-serif;
+    font-weight: 500;
+}
+.topData{
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  height: 600px;
+}
+.inside-wrapper{
+  display: flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width: 100%;
+}
+.page-wrapper{
+  padding-top: 5%;
+}
+.content-spacer{
+  padding-top: 4%;
+}
+
+
+
+
+.checkOutForm, .checkInForm{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 100px;
+}
+
+
+#checkInName, #checkOutName {
+  background-image: url('images/searchIcon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 12px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: #e9e9e9 !important; 
+}
+
+
+.filePicker{
+    height:min-content;
+    box-shadow: 5px 10px 8px #888888;
+    background-color: rgb(255, 255, 255); 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#inputfile{
+  height:min-content;
+    background-color: var(--buttonColor); 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#checkOutBtn, #checkInBtn{
+    height:min-content;
+    background-color: var(--buttonColor); 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  #checkOutBtn:hover{color:#000!important;background-color:#ccc!important}
+  #checkInBtn:hover{color:#000!important;background-color:#ccc!important}
+
+  /* List styles*/
+  #names, #namesInside{
+    width: 80%;
+    height: 200px;
+    overflow: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #names li a , #namesInside li a{
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
+  
+  #names li a:hover:not(.header) {
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  #namesInside li a:hover:not(.header) {
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+
+.filePicker{
+  display: flex;
+  flex-direction: row;
+  width:min-content;
+  padding-left: 120px;
+}
+
+
+
+
+
+
+
+.counterLabel {
+    color: #ffffff;
+  
+  }
+
+
+
+
