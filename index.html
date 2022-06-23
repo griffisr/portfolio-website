@@ -20,6 +20,11 @@
 
     <link id="theme-style" rel="stylesheet" type="text/css" href="">
 
+    <!--Initialize Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js"></script>
+    <script src='JS/Firebase/analytics.mjs'></script>
+
     <style>
         html {
   scroll-behavior: smooth;
@@ -29,7 +34,7 @@
     <script>
         function submitToAPI(e) {
                e.preventDefault();
-               var URL = "https://ohnlkfb52c.execute-api.us-east-2.amazonaws.com/Testing/email";
+               var URL = "https://ak5jkpbk4j.execute-api.us-east-1.amazonaws.com/prod/email";
 
 
                var name = document.getElementById("name-input").value;
@@ -49,9 +54,10 @@
                   email : email,
                   message : message
                 };
+                console.log(data)
 
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "https://ohnlkfb52c.execute-api.us-east-2.amazonaws.com/Testing/email");
+                xmlhttp.open("POST", "https://ak5jkpbk4j.execute-api.us-east-1.amazonaws.com/prod/email");
                 xmlhttp.setRequestHeader("Content-Type", "application/json");
                 xmlhttp.send(JSON.stringify(data));
                 xmlhttp.onreadystatechange = function() {
@@ -71,6 +77,7 @@
             }
         </script>
 
+        
 </head>
 <body>
 
@@ -197,26 +204,26 @@
                 <div id="quad">
                     <figure>
                         <a href="#" class="thumbnail">
-                            <img src="images/covid-screenshot.png" alt="..." id="proj1">
-                            <figcaption >Covid Contact Tracer</figcaption>
+                            <img src="images/covid-screenshot.png" alt="..." id="Covid Contact Tracer">
+                            <figcaption>Covid Contact Tracer</figcaption>
                           </a>
 
                     </figure>
                     <figure>
                         <a href="#" class="thumbnail">
-                            <img src="images/Peppers-Website.png" alt="..." id="proj2">
+                            <img src="images/Peppers-Website.png" alt="..." id="Peppers Mexican Grill">
                           </a>
                       <figcaption>Peppers Mexican Grill</figcaption>
                     </figure>
                     <figure>
                         <a href="#" class="thumbnail">
-                            <img src="images/SBsite.png" alt="..." id="proj3">
+                            <img src="images/SBsite.png" alt="..." id="Snap Booth Photos">
                           </a>
                       <figcaption>Snap Booth Photos</figcaption>
                     </figure>
                     <figure>
                         <a href="#" class="thumbnail">
-                            <img src="images/comingSoon.jpg" alt="..." id="proj4">
+                            <img src="images/comingSoon.jpg" alt="..." id="Coming Soon!">
                           </a>
                       <figcaption >Coming Soon!</figcaption>
                     </figure>
@@ -235,27 +242,32 @@
 <div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-          <div class="modal-title"><h1></h1></div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+          <div class="modal-title"><h1 id="projTitle" style="color: rgb(0, 0, 0)"></h1></div>
         </div>
+
         <div class="modal-body">
-          <img class="img-responsive center-block w-100 modalImg" src="" alt="">
-            <p class="post-intro">Website for my personal business utilizing real time analytics to guide marketing.</p>
-            <a target="_blank" href="http://snapboothphotos.com">Live Demo</a><p>     </p><a target="_blank"  href="https://github.com/griffisr/PhotoboothNew">View Code</a>
+            <img class="img-responsive center-block w-100 modalImg" src="" alt="imgalt" id="testing">
+            <p id="post-text"></p>
+            <p class="post-intro" id="post-intro"></p> 
+            <p class="post-outro" id="post-outro"></p>
+            <a target="_blank" href="" id="demoLink">Live Demo</a>
+            <p></p>
+            <a target="_blank"  href="" id="codeLink">View Code</a>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+
       </div>
     </div>
   </div>
 
-  <hr>
-
   
   
-
             
 
         </div>
@@ -328,12 +340,51 @@
             //set the scr attribute of the modal's img element
             //the value of the scr attribute of the image that is wrapped around the a element clicked by the user
             $('#image-modal .modal-body img').attr('src', $(this).find('img').attr('src'));
-            
+            $('#image-modal .modal-body img').attr('id', $(this).find('img').attr('id'));
+            document.getElementById("projTitle").innerHTML = $('#image-modal .modal-body img').attr('id');
+
+            switch ($(this).find('img').attr('id')) {
+                case "Covid Contact Tracer":
+                    document.getElementById("post-text").innerHTML = "A Covid-19 contact tracing program.";
+                    document.getElementById("post-intro").innerHTML = "Technology Used:";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, Google User Authentication, Firebase, and AWS:(S3, Route53, & API Gateway";
+                    document.getElementById("demoLink").innerHTML="Live Demo";
+                    document.getElementById("demoLink").href="/CovidContactTracer";
+                    document.getElementById("codeLink").innerHTML="View Code";
+                    document.getElementById("codeLink").href="https://github.com/griffisr/CovidContactTracer";
+                    break;
+                case "Peppers Mexican Grill":
+                    document.getElementById("post-text").innerHTML = "A webpage designed for a local mexican restaurant";
+                    document.getElementById("post-intro").innerHTML = "Technology Used:";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, and AWS:(S3, Route53, & API Gateway";
+                    document.getElementById("demoLink").innerHTML="Live Demo";
+                    document.getElementById("demoLink").href="http://www.peppersmexicangrill.net/";
+                    document.getElementById("codeLink").innerHTML="View Code";
+                    document.getElementById("codeLink").href="https://github.com/griffisr/Peppers-Website";
+                    break;
+                case "Snap Booth Photos":
+                    document.getElementById("post-text").innerHTML = "Website for my personal business utilizing real time analytics to guide marketing.";
+                    document.getElementById("post-intro").innerHTML = "Technology Used:";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript,Google Analytics and AWS:(S3, Route53, Lambda, SES, & API Gateway";
+                    document.getElementById("demoLink").innerHTML="Live Demo";
+                    document.getElementById("demoLink").href="http://snapboothphotos.com/";
+                    document.getElementById("codeLink").innerHTML="View Code";
+                    document.getElementById("codeLink").href="https://github.com/griffisr/PhotoboothNew";
+                    break;
+                case "Coming Soon!":
+                    document.getElementById("post-text").innerHTML = "Coming Soon!";
+                    document.getElementById("post-intro").innerHTML = "";
+                    document.getElementById("post-outro").innerHTML = "";
+                    document.getElementById("demoLink").innerHTML="";
+                    document.getElementById("codeLink").innerHTML="";
+                    document.getElementById("codeLink").href="";
+                    break;
+                }
             //open modal window
             $("#image-modal").modal('show');
             });
             $(document).ready(function() {
-                console.log($('.modalImg').attr('id'));
+                
             }); 
             //when clicking on an image inside a modal window close it (modal window
             $('#image-modal .modal-body img').on('click', function() {
@@ -342,34 +393,9 @@
         } )
 </script>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <!-- w-100 class so that header div covers 100% width of parent div -->
-                <h5 class="modal-title w-100" id="exampleModalLabel">
-                    GeeksForGeeks
-                </h5>
-                
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                        ×
-                    </span>
-                </button>
-            </div>
-            <!--Modal body with image-->
-            <div class="modal-body">
-                <img class="img-responsive center-block" src="" class= "w-100"/>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger"
-                    data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
 </body>
 </html>
