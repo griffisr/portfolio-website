@@ -306,9 +306,9 @@ h6 { font-size:  16px;}
     align-content: center;
     text-align: center;
 }
-#social-img{
-    max-width: 90%;
-    height: auto;
+a #social-img{
+    width: 350px;
+
 }
 
 
