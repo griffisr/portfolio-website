@@ -198,6 +198,19 @@
                 <div id="quad">
                     <figure>
                         <a href="#" class="thumbnail">
+                            <img src="images/SBsite.png" alt="..." id="Snap Booth Photos">
+                          </a>
+                      <figcaption>Snap Booth Photos</figcaption>
+                    </figure>
+
+                    <figure>
+                        <a href="#" class="thumbnail">
+                            <img src="images/CardsScreenshot.png" alt="..." id="Counting Kards">
+                          </a>
+                      <figcaption >Counting Kards</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="#" class="thumbnail">
                             <img src="images/covid-screenshot.png" alt="..." id="Covid Contact Tracer">
                             <figcaption>Covid Contact Tracer</figcaption>
                           </a>
@@ -209,23 +222,16 @@
                           </a>
                       <figcaption>Peppers Mexican Grill</figcaption>
                     </figure>
-                    <figure>
-                        <a href="#" class="thumbnail">
-                            <img src="images/SBsite.png" alt="..." id="Snap Booth Photos">
-                          </a>
-                      <figcaption>Snap Booth Photos</figcaption>
-                    </figure>
-                    <figure>
-                        <a href="#" class="thumbnail">
-                            <img src="images/comingSoon.jpg" alt="..." id="Coming Soon!">
-                          </a>
-                      <figcaption >Coming Soon!</figcaption>
-                    </figure>
+                   
                   </div>
 
             
 
             </div>
+
+
+
+            
 
         </div>
     </section>
@@ -365,13 +371,14 @@
                     document.getElementById("codeLink").innerHTML="View Code";
                     document.getElementById("codeLink").href="https://github.com/griffisr/PhotoboothNew";
                     break;
-                case "Coming Soon!":
-                    document.getElementById("post-text").innerHTML = "Coming Soon!";
-                    document.getElementById("post-intro").innerHTML = "";
-                    document.getElementById("post-outro").innerHTML = "";
-                    document.getElementById("demoLink").innerHTML="";
-                    document.getElementById("codeLink").innerHTML="";
-                    document.getElementById("codeLink").href="";
+                case "Counting Kards":
+                    document.getElementById("post-text").innerHTML = "A simple cards-based kanban board app heavily inspired by Trello in Vanilla JS. Users can create boards, which hold cards, which can hold items which can be dragged around cards.";
+                    document.getElementById("post-intro").innerHTML = "Technology Used:";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript";
+                    document.getElementById("demoLink").innerHTML="Live Demo";
+                    document.getElementById("demoLink").href="/trello-clone";
+                    document.getElementById("codeLink").innerHTML="View Code";
+                    document.getElementById("codeLink").href="https://github.com/griffisr/trello-clone";
                     break;
                 }
             //open modal window
