@@ -5,7 +5,7 @@
     <link rel="icon" 
         type="image/png" 
         href="https://styles.redditmedia.com/t5_2th52/styles/communityIcon_ol74atn322591.png">
-    <title>Riley Griffis</title>
+    <title>RILEY GRIFFIS</title>
 
     <meta name="viewport" content = "width=device-width,
     initial-scale=1, maximum-scale=1, minimum-scale=1" />
@@ -341,7 +341,7 @@
                 case "Covid Contact Tracer":
                     document.getElementById("post-text").innerHTML = "A Covid-19 contact tracing program.";
                     document.getElementById("post-intro").innerHTML = "Technology Used:";
-                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, Google User Authentication, Firebase, and AWS:(S3, Route53, & API Gateway";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, Google User Authentication, Firebase, and AWS:(S3, Route53, & API Gateway)";
                     document.getElementById("demoLink").innerHTML="Live Demo";
                     document.getElementById("demoLink").href="/CovidContactTracer";
                     document.getElementById("codeLink").innerHTML="View Code";
@@ -350,7 +350,7 @@
                 case "Peppers Mexican Grill":
                     document.getElementById("post-text").innerHTML = "A webpage designed for a local mexican restaurant";
                     document.getElementById("post-intro").innerHTML = "Technology Used:";
-                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, and AWS:(S3, Route53, & API Gateway";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, and AWS:(S3, Route53, & API Gateway)";
                     document.getElementById("demoLink").innerHTML="Live Demo";
                     document.getElementById("demoLink").href="http://www.peppersmexicangrill.net/";
                     document.getElementById("codeLink").innerHTML="View Code";
@@ -359,7 +359,7 @@
                 case "Snap Booth Photos":
                     document.getElementById("post-text").innerHTML = "Website for my personal business utilizing real time analytics to guide marketing.";
                     document.getElementById("post-intro").innerHTML = "Technology Used:";
-                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript,Google Analytics and AWS:(S3, Route53, Lambda, SES, & API Gateway";
+                    document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript,Google Analytics and AWS:(S3, Route53, Lambda, SES, & API Gateway)";
                     document.getElementById("demoLink").innerHTML="Live Demo";
                     document.getElementById("demoLink").href="http://snapboothphotos.com/";
                     document.getElementById("codeLink").innerHTML="View Code";
@@ -387,6 +387,30 @@
         } )
 </script>
 
+<!--**************************FIREBASE CONFIG******************************************************-->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDFh3pASlwH2fGOWMcB5l8loeHp4XEpyMc",
+        authDomain: "portfolio-4b459.firebaseapp.com",
+        projectId: "portfolio-4b459",
+        storageBucket: "portfolio-4b459.appspot.com",
+        messagingSenderId: "66016135572",
+        appId: "1:66016135572:web:8e105af0852b271ec4a781",
+        measurementId: "G-GE5SMLVWX7"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 
 
 
