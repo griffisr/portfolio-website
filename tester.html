@@ -15,13 +15,12 @@
 
     <link rel="stylesheet" type="text/css" href="tester.css">
     <link rel="stylesheet" type="text/css" href="tiledPics.css">
+    <link rel="stylesheet" type="text/css" href="bootstrapModal1.css">
 
 
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
 
-
-    <!--Initialize Firebase-->
-    <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <style>
@@ -120,17 +119,17 @@
       <div class="container-fluid features" id="skills">
         <div class="container cf">
           <h2>Skills &amp; Experience</h2>
-          <div class="col-3">
+          <div class="col-3" style="max-width: 100%;">
             <img src="https://s22.postimg.org/oi5es3fkx/icon_cloud.png" alt="">
             <h3>Cloud Computing</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda modi maiores eum commodi soluta, blanditiis voluptates ea eos, cim! Neque.</p>
           </div>
-          <div class="col-3">
+          <div class="col-3" style="max-width: 100%;">
             <img src="https://s22.postimg.org/jxj8d5vvl/icon_coding.png" alt="">
             <h3>Expert Coding</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda modi maiores eum commodi soluta, blanditiis voluptates ea eos, cim! Neque.</p>
           </div>
-          <div class="col-3">
+          <div class="col-3" style="max-width: 100%;">
             <img src="https://s22.postimg.org/citwksa01/icon_graph.png" alt="">
             <h3>Data Analysis</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda modi maiores eum commodi soluta, blanditiis voluptates ea eos, cim! Neque.</p>
@@ -141,42 +140,87 @@
       <div class="container-fluid portfolio" id="portfolio">
         <div class="container cf">
           <h2>Portfolio</h2>
+      
 
-          <div class="quadProj">
+      <div class="portfolio-container">
 
-            <div id="quad">
-                <figure>
-                    <a href="#" class="thumbnail">
-                        <img src="images/SBsite.png" alt="..." id="Snap Booth Photos">
-                      </a>
-                  <figcaption>Snap Booth Photos</figcaption>
-                </figure>
-
-                <figure>
-                    <a href="#" class="thumbnail">
-                        <img src="images/CardsScreenshot.png" alt="..." id="Counting Kards">
-                      </a>
-                  <figcaption >Counting Kards</figcaption>
-                </figure>
-                <figure>
-                    <a href="#" class="thumbnail">
-                        <img src="images/covid-screenshot.png" alt="..." id="Covid Contact Tracer">
-                        <figcaption>Covid Contact Tracer</figcaption>
-                      </a>
-
-                </figure>
-                <figure>
-                    <a href="#" class="thumbnail">
-                        <img src="images/Peppers-Website.png" alt="..." id="Peppers Mexican Grill">
-                      </a>
+      
+        <div class="gallery">
+      
+          <div class="gallery-item">
+              <a href="#" class="thumbnail">
+                  <img src="images/Peppers-Website.png" alt="..." id="Peppers Mexican Grill">
                   <figcaption>Peppers Mexican Grill</figcaption>
-                </figure>
-               
-              </div>
+                </a>
+          </div>
+      
+          <div class="gallery-item">
+          
+            <a href="#" class="thumbnail">
+              <img src="images/covid-screenshot.png" alt="..." id="Covid Contact Tracer">
+              <figcaption>Covid Contact Tracer</figcaption>
+            </a>
+          </div>
+      
+          <div class="gallery-item">
+         
+            <a href="#" class="thumbnail">
+              <img src="images/SBsite.png" alt="..." id="Snap Booth Photos">
+              <figcaption>Snap Booth Photos</figcaption>
+            </a>
 
-        
+          </div>
+      
+          <div class="gallery-item">  
+            <figure>
+              <a href="#" class="thumbnail">
+                  <img src="images/CardsScreenshot.png" alt="..." id="Counting Kards">
+                  <figcaption >Counting Kards</figcaption>
+                </a>
 
+          </figure>
+          </div>
+      
+          <div class="gallery-item">
+            <img class="gallery-image" src="https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=500&h=500&fit=crop" alt="back view of woman wearing a backpack and beanie waiting to cross the road on a busy street at night in New York City, USA">
+          </div>
+      
+          <div class="gallery-item">
+            <img class="gallery-image" src="https://images.unsplash.com/photo-1486334803289-1623f249dd1e?w=500&h=500&fit=crop" alt="man wearing a black jacket, white shirt, blue jeans, and brown boots, playing a white electric guitar while sitting on an amp">
+          </div>
+      
         </div>
+      
+      </div>
+      
+
+    </div>
+  </div>
+
+      <div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+    
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+              <div class="modal-title"><h1 id="projTitle" style="color: rgb(0, 0, 0)"></h1></div>
+            </div>
+    
+            <div class="modal-body">
+                <img class="img-responsive center-block w-100 modalImg" src="" alt="imgalt" id="testing">
+                <p id="post-text"></p>
+                <p class="post-intro" id="post-intro"></p> 
+                <p class="post-outro" id="post-outro"></p>
+                <a target="_blank" href="" id="demoLink">Live Demo</a>
+                <p></p>
+                <a target="_blank"  href="" id="codeLink">View Code</a>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+    
+          </div>
         </div>
       </div>
       

@@ -1,6 +1,6 @@
 ////////////////////////////////////
 // NAVIGATION SHOW/HIDE
-
+ 
 $("nav ul").hide();
 
 $(".nav-toggle").click( function() {

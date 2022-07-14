@@ -145,6 +145,7 @@ Utilities
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 99;
   }
   
   /* ========================
@@ -153,7 +154,7 @@ Utilities
   
   .splash {
     background: linear-gradient(rgba(44, 62, 80, 0.65), rgba(52, 152, 219, 0.65)),
-                  url("https://images.unsplash.com/photo-1452796907770-ad6cd374b12d?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925") no-repeat fixed center;
+                  url("https://images.unsplash.com/photo-1535136104956-115a2cd67fc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVjaG5vbG9neXx8fHx8fDE2NTc3NjE0NzY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080") no-repeat fixed center;
       background-size: cover;
       color: #fff;
   }
