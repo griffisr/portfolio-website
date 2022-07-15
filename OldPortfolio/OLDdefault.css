@@ -8,7 +8,7 @@
     --mainText: black;
     --secondaryText: #4b5156;
 
-    --themeDotBorder: #24292e;
+    --themeDotBorder: rgba(255, 0, 0, 0);
 
     --previewBg: rgb(251, 249, 243, 0.8);
 

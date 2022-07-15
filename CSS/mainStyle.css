@@ -3,8 +3,38 @@
 /* ========================
 Utilities
 ======================== */
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+
+
+
+:root{
+  --mainColor: #eaeaea;
+  --secondaryColor: #fff;
+
+  --borderColor: #c1c1c1;
+
+
+
+  --mainText: black;
+  --secondaryText: #4b5156;
+
+  --themeDotBorder: #24292e;
+
+  --previewBg: rgb(251, 249, 243, 0.8);
+
+  --previewShadow: #f0ead6;
+
+  --buttonColor: black;
+}
+
+
+
+
 * {
     box-sizing: border-box;
   }
@@ -33,30 +63,47 @@ Utilities
   
   body {
     color: #444;
-    font-family: Roboto, sans-serif;
+    font-family: 'Goldman', sans-serif;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 1;
     margin: 0;
     padding: 0;
   }
+  p,li, span, label{
+    color: var(--secondaryText);
+    font-family: 'Roboto Mono', monospace;
+
+}
+textarea, input{
+    font-family: 'Roboto Mono', monospace;
+}
   
   h1, h2, h3, h4, h5, h6, ul, ol, p {
     margin-top: 0;
   }
+
+  h1,h2,h3,h4,h5,h6, strong{
+    color: var(--mainText);
+    font-family: 'Goldman', sans-serif;
+    font-weight: 500;
+}
+h1 { font-size:  56px;}
+h2 { font-size:  36px;}
+h3 { font-size:  28px;}
+h4 { font-size:  24px;}
+h5 { font-size:  20px;}
+h6 { font-size:  16px;}
   
-  h1 {
-    font-weight: 900;
-  }
+
   
   p {
     line-height: 1.5;
   }
   
-  a, a:hover, a:focus, a:active, a:visited {
-    color: #E74C3C;
-    text-decoration: underline;
-  }
+  a, a:hover, a:focus, a:active {
+      color: var(--buttonColor);
+    }
   
   /* ========================
   Containers
@@ -153,7 +200,7 @@ Utilities
   ======================== */
   
   .splash {
-    background: linear-gradient(rgba(44, 62, 80, 0.65), rgba(52, 152, 219, 0.65)),
+    background: linear-gradient(rgba(44, 62, 80, 0.65), var(--mainColor)),
                   url("https://images.unsplash.com/photo-1535136104956-115a2cd67fc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dGVjaG5vbG9neXx8fHx8fDE2NTc3NjE0NzY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080") no-repeat fixed center;
       background-size: cover;
       color: #fff;
@@ -165,9 +212,9 @@ Utilities
   }
   
   .profile-image {
-    border-radius: 50%;
+    border-radius: 60%;
     display: block;
-    max-width: 200px;
+    max-width: 250px;
     margin: 0 auto 1em;
     width: 100%;
   }
@@ -214,7 +261,7 @@ Utilities
   }
   
   .intro {
-    background-color: #E74C3C;
+    background-color: var(--secondaryColor);
     color: #fff;
   }
   
@@ -234,17 +281,41 @@ Utilities
   }
   
   .portfolio {
-    background-color: #3498DB;
+    background-color: var(--secondaryColor);
     color: #fff;
   }
+
+  #skill-card{
+    border: .5px solid var(--themeDotBorder);
+
+    -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+    -maz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  }
   
+  .gallery-item:hover{
+    background-color: var(--mainColor);
+    opacity: 1;
+    cursor: pointer; z-index: 4; 
+    width: 100%; height: auto;
+  }
+
+  .gallery-item{
+    background-color: var(--mainColor);
+    opacity: .8;
+    margin: 0; width: 95%; 
+    height: auto; transition: .5s; 
+    display: inline-block; 
+    position:relative ; overflow: hidden; 
+  }
+
   .gallery .gallery-image {
     margin: 1em auto;
     width: 100%;
   }
   
   .gallery .gallery-image img {
-    background-color: #23648F;
+    background-color: #000000;
     border-radius: 4px;
     display: block;
     height: auto;
@@ -252,10 +323,13 @@ Utilities
     width: 100%;
   }
   
+  #contact{
+    background-color: var(--mainColor);
+  }
   .contact form {
-    background-color: #f0f0f0;
+    background-color: var(--secondaryColor);
     border-radius: 4px;
-    border-top: 8px solid #E74C3C;
+    border-top: 8px solid var(--themeDotBorder);
     box-shadow: 0 1px 2px rgba(0,0,0,.15);
     padding: 1em;
   }
@@ -274,20 +348,23 @@ Utilities
   }
   
   .contact form input[type="submit"] {
-    background-color: #E74C3C;
+    background-color: var(--buttonColor);
     border-radius: 0;
     color: #fff;
     padding: 1em;
     text-transform: uppercase;
   }
+
+
+  
   
   /* ========================
   Footer
   ======================== */
   
   .footer {
-    background-color: #2C3E50;
-    color:  #fff;
+    background-color: var(--previewShadow);
+    color:  var(--secondaryColor);
     font-size: 1.5em;
     text-align: center;
   }
@@ -297,7 +374,7 @@ Utilities
   }
   
   .footer a {
-    color: #fff;
+    color: var(--mainText);
     margin-right: 1em;
   }
   
@@ -392,3 +469,124 @@ Utilities
     }
     
   }
+
+  #skills{
+    background-color: var(--mainColor);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    color: var(--mainText);
+}
+#skill-item{
+  padding-bottom: 7px;
+  font-size: .8em;
+  color: var(--mainText);
+
+}
+#skill-top-item{
+  padding-bottom: 2px;
+  font-size: .8em;
+  color: var(--mainText);
+
+}
+#skill-sub-item{
+  font-size: .65em;
+  margin: 0;
+  color: var(--mainText);
+
+}
+#skills-text{
+  font-size: .825em;
+  color: var(--mainText);
+}
+
+#programming-experience-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+#theme-options-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.theme-dot{
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+
+  margin: 5px;
+  border: 2px solid var(--themeDotBorder);
+
+  -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  -maz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+
+  cursor: pointer;
+}
+
+.theme-dot:hover{
+  border-width: 5px;
+  transition: 0.3s;
+}
+
+#light-mode{
+  background-color: #fff;
+
+}
+
+#blue-mode{
+  background-color: #192734;
+
+}
+
+#green-mode{
+  background-color: #78866b;
+
+}
+
+#purple-mode{
+  background-color: #7E4C74;
+
+}
+
+#settings-note{
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+
+}
+
+#post-text{
+  color: var(--mainText);
+}
+#modal-content-wrap{
+  background-color: var(--mainColor);
+}
+
+.modal-header-text{
+  color: var(--mainText);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
