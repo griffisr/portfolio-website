@@ -1,6 +1,6 @@
 ////////////////////////////////////
 // NAVIGATION SHOW/HIDE
- 
+
 $("nav ul").hide();
 
 $(".nav-toggle").click( function() {
@@ -61,7 +61,6 @@ $( document ).ready( function() {
 $( window ).resize( function() {
   centerSplash();
 });
-
 
 
 
