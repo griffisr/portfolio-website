@@ -235,13 +235,13 @@
       
         <div class="gallery">
       
-          <div class="gallery-item">
+          <!-- <div class="gallery-item">
               <a href="#" class="thumbnail">
                   <img src="images/Peppers-Website.png" alt="..." id="Peppers Mexican Grill">
                   <h3 class="portfolio-title">Peppers Mexican Grill</h3>
                 </a>
           </div>
-      
+        -->
           <div class="gallery-item">
           
             <a href="#" class="thumbnail">
@@ -263,6 +263,13 @@
             <a href="#" class="thumbnail">
               <img src="images/CardsScreenshot.png" alt="..." id="Counting Kards">
               <h3 class="portfolio-title">Counting Kards</h3>
+            </a>
+          </div>
+
+          <div class="gallery-item">
+            <a href="#" class="thumbnail">
+              <img src="images/memory-game.png" alt="..." id="Space Memory Game">
+              <h3 class="portfolio-title">Space Memory Game</h3>
             </a>
           </div>
       
@@ -351,7 +358,7 @@
 
         switch ($(this).find('img').attr('id')) {
             case "Covid Contact Tracer":
-                document.getElementById("post-text").innerHTML = "A Covid-19 contact tracing program.";
+                document.getElementById("post-text").innerHTML = "A Covid-19 contact tracing program. Users can log in or create an account using Google Auth. Once logged in, users can keep track of guests via a check in/check out system stored globally in Firbase that could be used for Covid-19 contact tracing ";
                 document.getElementById("post-intro").innerHTML = "Technology Used:";
                 document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript, Google User Authentication, Firebase, and AWS:(S3, Route53, & API Gateway)";
                 document.getElementById("demoLink").innerHTML="Live Demo";
@@ -369,7 +376,7 @@
                 document.getElementById("codeLink").href="https://github.com/griffisr/Peppers-Website";
                 break;
             case "Snap Booth Photos":
-                document.getElementById("post-text").innerHTML = "Website for my personal business utilizing real time analytics to guide marketing.";
+                document.getElementById("post-text").innerHTML = "A multi-page website for my personal business utilizing real time Google Analytics to guide marketing. The emphasis for this project, in addition to pleasing UI, was to build out user tracking via analytics calls to track customer conversion.";
                 document.getElementById("post-intro").innerHTML = "Technology Used:";
                 document.getElementById("post-outro").innerHTML = "HTML,CSS, Javascript,Google Analytics and AWS:(S3, Route53, Lambda, SES, & API Gateway)";
                 document.getElementById("demoLink").innerHTML="Live Demo";
@@ -386,6 +393,16 @@
                 document.getElementById("codeLink").innerHTML="View Code";
                 document.getElementById("codeLink").href="https://github.com/griffisr/trello-clone";
                 break;
+            case "Space Memory Game":
+                document.getElementById("post-text").innerHTML = "A simple cards-based memory game in Vanilla JS. Users try and match up space images on the back of cards in the shorted time and least amount of moves. The leaderbpard is stored globally via firebase DB so anyone can play and make it on the board";
+                document.getElementById("post-intro").innerHTML = "Technology Used:";
+                document.getElementById("post-outro").innerHTML = "Bootstrap, Firebase, HTML,CSS, Javascript";
+                document.getElementById("demoLink").innerHTML="Live Demo";
+                document.getElementById("demoLink").href="/memory-game";
+                document.getElementById("codeLink").innerHTML="View Code";
+                document.getElementById("codeLink").href="https://github.com/griffisr/memory-game";
+                break;
+
             }
         //open modal window
         $("#image-modal").modal('show');
