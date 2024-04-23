@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" 
+        type="image/png" 
+        href="https://styles.redditmedia.com/t5_2th52/styles/communityIcon_ol74atn322591.png">
+    <title>Blog Post</title>
+
+    <meta name="viewport" content = "width=device-width,
+    initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/mainStyle.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="../CSS/defaultStyle.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/blue.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/green.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/purple.css">
+
+    <link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+
+    <link rel="stylesheet" type="text/css" href="../CSS/Component-Styles/blog-post.css">
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+    </style>
+
+    <script>
+        function submitToAPI(e) {
+               e.preventDefault();
+               var URL = "https://ak5jkpbk4j.execute-api.us-east-1.amazonaws.com/prod/email";
+
+
+               var name = document.getElementById("name-input").value;
+               var subject = document.getElementById("subject-input").value;
+               var email = document.getElementById("email-input").value;
+               var message = document.getElementById("message-input").value;
+               if (name=="" || subject=="" || email=="" || message=="")
+                {
+                    alert("Please Fill All Required Field");
+                    return false;
+                }
+
+
+               var data = {
+                  name : name,
+                  subject : subject,
+                  email : email,
+                  message : message
+                };
+                console.log(data)
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "https://ak5jkpbk4j.execute-api.us-east-1.amazonaws.com/prod/email");
+                xmlhttp.setRequestHeader("Content-Type", "application/json");
+                xmlhttp.send(JSON.stringify(data));
+                xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState === 4) {
+                    var response = JSON.parse(xmlhttp.responseText);
+                    if (xmlhttp.status === 200 ) {
+                        console.log('successful');
+                        alert("Thank you! Your response has been submitted!")
+                    } else {
+                        console.log('failed');
+                    }
+                }
+            }
+
+            document.getElementById('contact-form').reset();
+
+            }
+        </script>
+
+        
+</head>
+<body class="blog-post-section">
+
+    <nav class="container-fluid nav">
+        <div class="container cf">
+          <div class="brand">
+            <a href="#splash">Riley Griffis</a>
+          </div>
+          <i class="fa fa-bars nav-toggle"></i>
+          <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills &amp; Experience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a target="_blank" href="Resume.pdf">Resume</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+
+      <div class="container">
+        <article id="content" class="clearfix">
+          <h1>The hottest new web design tips &amp; tricks for captivating your visitors</h1>
+          <p class="byline">Written by <a href="javascript:void(0)">Jake Rocheleau</a> on January 15, 2014 <span class="twitter"><a href="javascript:void(0)">@jakerocheleau</a></span></p>
+          <div id="post-container">
+            <section id="post">
+              <figure id="featuredimg">
+                <img src="../images/SBsite.png" alt="featured img">
+                <figcaption><a href="http://www.flickr.com/photos/flysi/104526773/">photo credit</a></figcaption>
+              </figure>
+              
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet arcu arcu. Ut dolor lacus, malesuada sollicitudin varius bibendum, dapibus eget dui. Mauris ut leo augue. Fusce nec interdum leo. Morbi sodales lorem at nisi rhoncus, nec sagittis neque varius.</p>
+              
+              <p>Curabitur ligula tellus, laoreet sit amet tortor eget, facilisis bibendum nulla. Vestibulum id leo at sapien ornare suscipit in ac ligula. Cras auctor elit sed sapien blandit, tincidunt fringilla felis interdum. Nullam facilisis euismod sollicitudin.</p>
+              
+              <p>Quisque rhoncus odio et orci pharetra, vitae laoreet diam lobortis. Morbi nec lacinia leo. Nam ac massa ante. Curabitur imperdiet orci eget mattis cursus.</p>
+              
+              <p>Fusce cursus ligula vel turpis ornare, et posuere sapien molestie. Aliquam vel elit condimentum, dignissim lorem ut, pretium diam.</p>
+              
+              <p>Vivamus pharetra nunc urna, at porttitor augue gravida quis. Suspendisse potenti. Mauris nunc tortor, congue vel odio non, ultricies sagittis dolor. Curabitur pharetra posuere leo, at dapibus augue tempor sed. Aliquam accumsan, purus quis sodales viverra, risus mi condimentum nisl, eu posuere justo justo non quam.</p>
+              
+              <p>Aenean consectetur, nisi eget sodales pretium, lectus lectus tempor dui, at vulputate augue arcu eget nunc. Maecenas imperdiet tincidunt erat, non tempor sapien viverra vel. Duis vel felis ut risus gravida tempus at eu felis. Etiam ac purus vestibulum, tempus enim vitae, rhoncus nisl.</p>
+              
+              <p>Sed sem lacus, ultricies vel lobortis at, tempus fermentum nulla.</p>
+              
+              <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In tristique aliquam neque, in molestie odio iaculis lobortis. Aenean sapien lacus, malesuada non volutpat eu, scelerisque eget elit. Nulla facilisi.</p>
+              
+              <h3>Comments are closed.</h3>
+            </section>
+          </div><!-- @end #post-container -->
+          
+          <aside id="sidebar">
+            <h3>Advertisers</h3>
+            <div class="adblock"><img src="../images/Peppers-Website.png" alt="mailgun advertisement"></div>
+            
+            <div class="adblock"><img src="../images/memory-game.png" alt="twiends advertisement"></div>
+            
+            <br class="spacer">
+                    
+            <h3>Recent Posts</h3>
+            <ul id="recent-posts">
+              <li><a href="javascript:void(0)" class="clearfix"><img src="../images/comingSoon.png"><h4>Popular tools for cloud-based IDEs</h4></a></li>
+              <li><a href="javascript:void(0)" class="clearfix"><img src="../images/comingSoon.png"><h4>30 free PSDs released in 2014</h4></a></li>
+              <li><a href="javascript:void(0)" class="clearfix"><img src="../images/comingSoon.png"><h4>How to break into freelance web design</h4></a></li>
+              <li><a href="javascript:void(0)" class="clearfix"><img src="../images/comingSoon.png"><h4>Best free open source jQuery plugins</h4></a></li>
+            </ul>
+          </aside><!-- @end #sidebar -->
+        </article><!-- @end #content -->
+        
+        <footer id="mobilenav">
+          <ul>
+            <li><a href="javascript:void(0)">Home</a></li>
+            <li><a href="javascript:void(0)">News</a></li>
+            <li><a href="javascript:void(0)">Culture</a></li>
+            <li><a href="javascript:void(0)">Business</a></li>
+            <li><a href="javascript:void(0)">Tech</a></li>
+            <li><a href="javascript:void(0)">Offbeat</a></li>
+          </ul>    
+        </footer>
+      </div><!-- @end #container -->
+
+
+
+
+      <!--Start Blog Area-->
+      <section class="blog_area">
+        <div class="container">
+      
+          <div class="row">
+            <div class="col-sm col-sm-offset-5">
+              <div class="blog_title text-center">
+                <h2>Recent Blog Posts</h2>
+              </div>
+            </div>
+          </div>
+      
+      
+          <div class="row">
+      
+            <div class="blog">
+      
+      
+      
+              <!--Blog post-->
+              <div class="col-md-4 col-xs-12">
+                <div class="ind_blog">
+                  <article>
+                    <header>
+                      <h2>Lorem ipsum dolor sit amet.</h2>
+                      <ul class="list-inline">
+                        <li><a href="">Author | <span>Momin</span></a></li>
+                        <li><a href="">Published | <span>20-16-2017</span></a></li>
+                      </ul>
+                    </header>
+                    <section>
+                      <div class="blog_news">
+                        <div class="blog_image">
+                          <figure>
+                            <img class="img-responsive" src="../images/memory-game.png" alt="mongo">
+                            <figcaption class="text-center blog-cap">
+                              <small>Lorem ipsum dolor sit.</small>
+                            </figcaption>
+                          </figure>
+      
+                        </div>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, beatae cum distinctio dolore ducimus eaque repellendus suscipit. Dignissimos doloremque, impedit provident sit voluptatem voluptates. Ad autem id non numquam quod.
+                        </p>
+                      </div>
+                    </section>
+                    <section>
+                      <footer class="blog_news_footer">
+                        
+                        <div class="col blog_news_footer_wrapper">
+                          <div class="col-xs-6">
+                            <div class="blog_news_readmore  ">
+                              <a class="btn btn-sm btn-warning" href="">Readmore</a>
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <div class="blog_news_cat  ">
+                              <small> Tags: <span>Javascript</span></small>
+                            </div>
+                          </div>
+                         
+      
+                        </div>
+                      </footer>
+                    </section>
+                  </article>
+                </div>
+              </div>
+      
+      
+               <!--Blog post-->
+              <div class="col-md-4 col-xs-12">
+                <div class="ind_blog">
+                  <article>
+                    <header>
+                      <h2>Lorem ipsum dolor sit amet.</h2>
+                      <ul class="list-inline">
+                        <li><a href="">Author | <span>Momin</span></a></li>
+                        <li><a href="">Published | <span>20-16-2017</span></a></li>
+                      </ul>
+                    </header>
+                    <section>
+                      <div class="blog_news">
+                        <div class="blog_image">
+                          <figure>
+                            <img class="img-responsive" src="../images/memory-game.png" alt="mongo">
+                            <figcaption class="text-center blog-cap">
+                              <small>Lorem ipsum dolor sit.</small>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, beatae cum distinctio dolore ducimus eaque repellendus suscipit. Dignissimos doloremque, impedit provident sit voluptatem voluptates. Ad autem id non numquam quod.
+                        </p>
+                      </div>
+                    </section>
+                    <section>
+                      <footer class="blog_news_footer">
+                        <div class="col blog_news_footer_wrapper">
+                          <div class="col-xs-6">
+                            <div class="blog_news_readmore  ">
+                              <a class="btn btn-sm btn-warning" href="">Readmore</a>
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <div class="blog_news_cat  ">
+                              <small> Tags: <span>Javascript</span></small>
+                            </div>
+                          </div>
+                         
+      
+                        </div>
+                      </footer>
+                    </section>
+                  </article>
+                </div>
+              </div>
+      
+      
+               <!--Blog post-->
+              <div class="col-md-4 col-xs-12">
+                <div class="ind_blog">
+                  <article>
+                    <header>
+                      <h2>Lorem ipsum dolor sit amet.</h2>
+                      <ul class="list-inline">
+                        <li><a href="">Author | <span>Momin</span></a></li>
+                        <li><a href="">Published | <span>20-16-2017</span></a></li>
+                      </ul>
+                    </header>
+                    <section>
+                      <div class="blog_news">
+                        <div class="blog_image">
+                          <figure>
+                            <img class="img-responsive" src="../images/memory-game.png" alt="mongo">
+                            <figcaption class="text-center blog-cap">
+                              <small>Lorem ipsum dolor sit.</small>
+                            </figcaption>
+                          </figure>
+      
+                        </div>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, beatae cum distinctio dolore ducimus eaque repellendus suscipit. Dignissimos doloremque, impedit provident sit voluptatem voluptates. Ad autem id non numquam quod.
+                        </p>
+                      </div>
+                    </section>
+                    <section>
+                      <footer class="blog_news_footer">
+                        <div class="col blog_news_footer_wrapper">
+                          <div class="col-xs-6">
+                            <div class="blog_news_readmore  ">
+                              <a class="btn btn-sm btn-warning" href="">Readmore</a>
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <div class="blog_news_cat  ">
+                              <small> Tags: <span>Javascript</span></small>
+                            </div>
+                          </div>
+                         
+      
+                        </div>
+                      </footer>
+                    </section>
+                  </article>
+                </div>
+              </div>
+      
+      
+      
+            </div>
+          </div>
+          <p class="blog_see_all text-center">
+            <a class="btn btn-lg btn_outline" href="">
+              <span class="blog_icon"><i class="fa fa-file"></i> Discovery More</span>
+            </a>
+          </p>
+        </div>
+      </section>
+      <!--End Blog Area-->
+<!--End Blog Area-->
+      
+      <div class="container-fluid contact" id="contact">
+        <div class="container modal-content-wrap">
+          <form id="contact-form">
+            <h2>Contact Me</h2>
+            <input type="text" placeholder="Name" id="name-input" name="name" class="full-half">
+            <input type="email" placeholder="Email" id="email-input" name="email" class="full-half">
+            <input type="text" placeholder="Subject" id="subject-input" name="subject">
+            <textarea placeholder="Message" id="message-input" name="message"></textarea>
+            <input type="submit" value="Send" onclick="submitToAPI(event)">
+          </form>
+        </div>
+      </div>
+      
+      <footer class="container-fluid footer">
+        <div class="container">
+          <a href="https://github.com/griffisr" target="_blank"><i class="fa fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fa fa-codepen"></i></a>
+          <a href="https://www.linkedin.com/in/rileygriffis/" target="_blank"><i class="fa fa-linkedin hover-opacity"></i></a>
+
+        </div>
+      </footer>
+
+
+
+<script src='../JS/blog-post-mainScript.js'></script>
+
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity=
+"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous">
+    </script>
+    <script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity=
+"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous">
+    </script>
+
+
+
+
+
+
+</body>
+</html>
